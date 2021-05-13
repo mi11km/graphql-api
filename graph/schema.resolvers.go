@@ -5,18 +5,26 @@ package graph
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/mi11km/graphql-api/graph/generated"
 	"github.com/mi11km/graphql-api/graph/model"
 )
 
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	panic(fmt.Errorf("not implemented"))
+	todo := &model.Todo{
+		Class:       input.Class,
+		Kind:        input.Kind,
+		Deadline:    input.Deadline,
+		IsDone:      false,
+		Name:        input.Name,
+		Description: input.Description,
+	}
+	r.todos = append(r.todos, todo)
+	return todo, nil
 }
 
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.todos, nil
 }
 
 // Mutation returns generated.MutationResolver implementation.

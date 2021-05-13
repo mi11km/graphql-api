@@ -4,6 +4,7 @@ services:
   api:
     build:
       context: .
+      dockerfile: ./build/Dockerfile
       target: builder
     volumes:
       - ./:/go/src/app

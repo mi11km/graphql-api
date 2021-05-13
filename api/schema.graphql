@@ -1,0 +1,36 @@
+scalar Time
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Todo {
+    class: String!
+    kind: String!
+    deadline: Time!
+    isDone: Boolean!
+    name: String
+    description: String
+}
+
+type User {
+    name: String
+    school: String!
+}
+
+type Query {
+    todos: [Todo!]!
+}
+
+input NewTodo {
+    class: String!
+    kind: String!
+    deadline: Time!
+    name: String
+    description: String
+}
+
+type Mutation {
+    createTodo(input: NewTodo!): Todo!
+}

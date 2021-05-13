@@ -2,19 +2,28 @@
 
 package model
 
+import (
+	"time"
+)
+
 type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
+	Class       string    `json:"class"`
+	Kind        string    `json:"kind"`
+	Deadline    time.Time `json:"deadline"`
+	Name        *string   `json:"name"`
+	Description *string   `json:"description"`
 }
 
 type Todo struct {
-	ID   string `json:"id"`
-	Text string `json:"text"`
-	Done bool   `json:"done"`
-	User *User  `json:"user"`
+	Class       string    `json:"class"`
+	Kind        string    `json:"kind"`
+	Deadline    time.Time `json:"deadline"`
+	IsDone      bool      `json:"isDone"`
+	Name        *string   `json:"name"`
+	Description *string   `json:"description"`
 }
 
 type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	Name   *string `json:"name"`
+	School string  `json:"school"`
 }
