@@ -28,5 +28,5 @@
   "cpu": "256",
   "executionRoleArn": "arn:aws:iam::184407247899:role/ecsTaskExecutionRole",
   "taskRoleArn": "arn:aws:iam::184407247899:role/ecsTaskExecutionRole",
-  "family": "ecs-task-definition:latest"
+  "family": "graphql-api-task-definition"
 }
