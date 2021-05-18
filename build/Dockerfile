@@ -1,6 +1,6 @@
 FROM golang:1.16-alpine AS builder
 WORKDIR /go/src/app
-COPY .. .
+COPY . .
 RUN go build -o /go/bin/app ./cmd/main.go
 CMD ["/go/bin/app"]
 
