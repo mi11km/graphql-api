@@ -45,11 +45,11 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
       - name: Render Amazon ECS task definition for app container # appコンテナのECSタスク定義ファイルレンダリング
-        id: render-app-container
+        id: render-graphql-api-container
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ./deployments/ecs/task-definition.json
-          container-name: app
+          task-definition: deployments/ecs/task-definition.json
+          container-name: graphql-api
           image: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
 
       - name: Deploy to Amazon ECS service # ECSサービスデプロイ
