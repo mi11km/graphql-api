@@ -38,7 +38,7 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run:
           # docker build --cache-from=$ECR_REGISTRY/$ECR_REPOSITORY:latest --build-arg BUILDKIT_INLINE_CACHE=1 -f ./build/Dockerfile -t $ECR_REPOSITORY .
-          docker build --build-arg BUILDKIT_INLINE_CACHE=1 -f ./build/Dockerfile -t $ECR_REPOSITORY .
+          docker build . --build-arg BUILDKIT_INLINE_CACHE=1 -f ./build/Dockerfile -t $ECR_REPOSITORY
           docker tag $ECR_REPOSITORY:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker tag $ECR_REPOSITORY:latest $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
