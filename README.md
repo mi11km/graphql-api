@@ -8,6 +8,8 @@
 - Go (gqlgen)
 - GraphQL
 - Docker
+- AWS(ECS(Fargate), ECR, Route53, ALB, ACM)
+- Github Actions
 
 # 実行
 ```shell
