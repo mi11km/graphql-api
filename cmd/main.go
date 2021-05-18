@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"log"
 	"net/http"
 	"os"
@@ -25,9 +24,7 @@ func main() {
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
 	http.Handle("/query", srv)
 	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		b, _ := json.Marshal(map[string]bool{"health": true})
-		_, _ = w.Write(b)
+		_, _ = w.Write([]byte("This is health api"))
 	})
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
