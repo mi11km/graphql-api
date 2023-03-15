@@ -1,5 +1,5 @@
 # GraphQl API
-- gqlgenを使ったGoのGraphQL API
+- gqlgenを使ったGoのGraphQL API の例
 
 # 機能一覧
 
